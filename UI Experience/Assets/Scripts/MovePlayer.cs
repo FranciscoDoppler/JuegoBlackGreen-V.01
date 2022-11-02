@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    public float horizontal;
-    public float vertical;
-    public CharacterController player;
-    public float velocidad;
-
+    public float Speed = 1.0f;
+    public float RotationSpeed = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<CharacterController>();
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float Vertical = Input.GetAxis("Vertical");
 
-    }
+        transform.Translate(new Vector3(horizontal, 0.0f, Vertical) * Time.deltaTime * Speed);
 
-    private void FixedUpdate()
-    {
-        player.Move(new Vector3(horizontal, 0, vertical) * velocidad * Time.deltaTime);
+        float rotationY = Input.GetAxis("Mouse X");
+
+        transform.Rotate(new Vector3(0, rotationY * Time.deltaTime * RotationSpeed, 0));
+
     }
 }

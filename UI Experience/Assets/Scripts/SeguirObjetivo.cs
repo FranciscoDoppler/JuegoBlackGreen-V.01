@@ -10,13 +10,6 @@ public class SeguirObjetivo : MonoBehaviour
     public ControlENE controller;
 
 
-    //void Start()
-    //{
-    //    agente = GetComponent<UnityEngine.AI.NavMeshAgent>();
-    //    agente.speed = controller.Dificultad;
-
-    //}
-
     void FixedUpdate()
     {
         NavMeshAgent agente = GetComponent<UnityEngine.AI.NavMeshAgent>();

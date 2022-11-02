@@ -5,32 +5,17 @@ using UnityEngine.UI;
 
 public class Destruir : MonoBehaviour
 {
-    public int puntaje = 0;
-    public TMPro.TMP_Text Puntajen;
+
 
     void OnCollisionEnter(Collision collider)
     {
-        if (collider.gameObject.tag == "Enemigos")
+        if (collider.gameObject.tag == "Balas")
         {
             Destroy(gameObject);
-
-            //puntaje++;
-
-            //Puntajen.text = puntaje.ToString();
+            Debug.Log("Enemigo destruido +1 punto imaginario");
 
         }
 
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-
-    //    if (other.gameObject.tag == "Balas")
-    //    {
-    //        Destroy(GameObject.FindGameObjectWithTag("Enemigos"));
-    //        puntaje++;
-    //        Puntajen.text = puntaje.ToString();
-
-    //    }
-    //}
 }
